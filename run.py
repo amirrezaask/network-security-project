@@ -5,12 +5,12 @@ from rsa import rsa
 '''
 Sample Usage:
     Generate:
-        python3 main.py --mode g
+        python3 run.py --mode g
     Encrypt:
-        python3 main.py --mode e --e 7 --d 91635976162903 --n 160362984049267 --inpt SALAM
+        python3 run.py --mode e --e 7 --d 91635976162903 --n 160362984049267 --inpt SALAM
 
     Decrypt:
-        python3 main.py --mode d --e 7 --d 91635976162903 --n 160362984049267 --cipher 124576655406223
+        python3 run.py --mode d --e 7 --d 91635976162903 --n 160362984049267 --cipher 124576655406223
 
 
 '''
