@@ -14,7 +14,6 @@ class RSA:
 
     def decrypt(self, cipher):
         d = pow(cipher, self.d, self.n)
-        print(d)
         return Helpers.int_to_text(d)
 
 
