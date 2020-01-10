@@ -4,7 +4,7 @@ from random import randrange
 
 class KeyGenerator:
     @classmethod
-    def are_non_relative(cls, x, y):
+    def __are_non_relative(cls, x, y):
         return bmm(x, y) == 1
 
     @classmethod
@@ -64,7 +64,7 @@ class KeyGenerator:
         e = 0
         i = 2
         while i < phi_n:
-            if cls.are_non_relative(i, phi_n):
+            if cls.__are_non_relative(i, phi_n):
                 e = i
                 break
             i += 1
