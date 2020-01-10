@@ -10,19 +10,17 @@ class Helpers:
     @classmethod
     def text_to_int(cls, s: str):
         s = s.upper()
-
-        number = ""
-        for char in s:
-            if char in jadval:
-                temp = jadval.index(char)
+        number = str()
+        for c in s:
+            if c in jadval:
+                temp = jadval.index(c)
                 if temp < 10:
-                    number = number + "0" + str(temp)
+                    number = '{}0{}'.format(number, str(temp))
                 else:
-                    number = number + str(temp)
+                    number = '{}{}'.format(number, str(temp))
             else:
                 raise ValueError
-        number = int(number)
-        return number
+        return int(number)
 
     @classmethod
     def int_to_text(cls, num_input):
@@ -31,7 +29,7 @@ class Helpers:
         else:
             decrypted = str(num_input)
         str_input = [decrypted[i:i + 2] for i in range(0, len(decrypted), 2)]
-        out = ""
+        out = str()
         for kir in str_input:
             out = out + jadval[int(kir)]
 
