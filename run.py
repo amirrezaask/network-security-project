@@ -24,12 +24,13 @@ Sample Usage:
 @click.option('--n')
 @click.option('--e')
 @click.option('--d')
+@click.option('--length')
 @click.option('--inpt')
 @click.option('--cipher')
-def main(mode, n, e, d, inpt, cipher):
+def main(mode, n, e, d, inpt, cipher, length):
     if mode == 'g' or mode == 'generate' or mode == 'generate-keys':
         start = time.time()
-        n, e, d = key_generator.KeyGenerator.create_rsa_keys()
+        n, e, d = key_generator.KeyGenerator.create_rsa_keys(int(length))
         end = time.time()
         print('n = {}, e={}, d={}'.format(n, e, d))
         print('Elapsed: {} seconds'.format(end - start))
@@ -45,7 +46,7 @@ def main(mode, n, e, d, inpt, cipher):
         start = time.time()
         r = rsa.RSA(int(n), int(e), int(d))
         end = time.time()
-        print(r.decrypt(int(cipher)))
+        print(r.decrypt(cipher))
         print('Elapsed: {} seconds'.format(end - start))
 
 

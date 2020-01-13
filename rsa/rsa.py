@@ -10,11 +10,22 @@ class RSA:
         self.n, self.e, self.d = n, e, d
 
     def encrypt(self, msg):
-        return pow(Helpers.text_to_int(msg), self.e, self.n)
+        """ encrypt encrypts input message"""
+        numbers = Helpers.str_to_number(msg)
+        pow_numbers = list()
+        for n in numbers:
+            pow_numbers.append(str(pow(n, self.e, self.n)))
+        print(pow_numbers)
+        return '-'.join(pow_numbers)
 
-    def decrypt(self, cipher):
-        d = pow(cipher, self.d, self.n)
-        return Helpers.int_to_text(d)
-
-
+    def decrypt(self, cipher: str):
+        """decrypt decrypts given cipher"""
+        cipher = cipher.split("-")
+        decrypted = list()
+        for c in cipher:
+            tmp = str(pow(int(c), self.d, self.n))
+            if len(tmp) % 2 == 1:
+                tmp = '0' + tmp
+            decrypted.append(Helpers.number_to_str(tmp))
+        return ''.join(decrypted)
 
