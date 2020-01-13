@@ -7,9 +7,16 @@ jadval = [
 
 
 class Helpers:
-
+    """
+    Helpers is a set of string and int operation which helps us to transform given string as input to an integer number
+    and to transform an integer number to a string 
+    """
     @classmethod
     def str_to_number(cls, text: str, separate_length: int = 6):
+        """
+        transform given string to number by first of all splitting given string to smaller strings and then using pre defined charachter table provided
+        in project defenition converting each charachter to a double digit int number, concat each part of split together and then join them with a simple dash
+        """
         if separate_length % 2 == 1:
             raise ValueError
         text = text.upper()
@@ -37,6 +44,10 @@ class Helpers:
 
     @classmethod
     def number_to_str(cls, number):
+        """
+            splits given input using dash as a delimiter and then split each part to two digit numbers and retrieve correct character from predefined table
+            and finally concat all charachters together
+        """
         if len(str(number)) % 2 == 1:
             decrypted = "0" + str(number)
         else:

@@ -15,7 +15,10 @@ Sample Usage:
     Decrypt:
         python3 run.py --mode d --e 7 --d 91635976162903 --n 160362984049267 --cipher 124576655406223
 
-
+Program Flow:
+    encrypt mode: user input -> helpers.str_to_number (for transforming given input to an integer number) -> rsa.encrypt -> return to user
+    decrypt mode: user input -> rsa.decrypt -> helpers.number_to_str (transforming decrypted number to valid string ) -> return to user
+    generate_keys: generate two random prime numbers named p and q -> generate n=>(p*q) and phi(n)=>(p-1)(q-1) -> generate e (which is the basis of our public key) -> generate d (basis of our private key)
 '''
 
 

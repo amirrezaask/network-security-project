@@ -5,10 +5,12 @@ from random import randrange
 class KeyGenerator:
     @classmethod
     def __are_non_relative(cls, x, y):
+        """ checks if given numbers are none relative in other word if biggest mutal modulus is 1"""
         return bmm(x, y) == 1
 
     @classmethod
     def __prime(cls, x):
+        """ checks if given number is a prime number"""
         if x <= 1:
             return False
         if x <= 3:
@@ -25,6 +27,7 @@ class KeyGenerator:
 
     @classmethod
     def __generate_2_prime_numbers(cls, s, e):
+        """generates two random prime number"""
         rand = 0
         while not cls.__prime(rand):
             rand = randrange(s, e)
@@ -38,6 +41,7 @@ class KeyGenerator:
 
     @classmethod
     def __find_modular_inverse(cls, a, m):
+        """for given numbers find modular inverse"""
         if bmm(a, m) != 1:
             return None
         u1, u2, u3 = 1, 0, a
@@ -49,6 +53,7 @@ class KeyGenerator:
 
     @classmethod
     def create_rsa_keys(cls, length=48):
+        """creates our rsa keys, technically speaking returns n, e, d"""
         if length > 64:
             length = 63
         p, q = cls.__generate_2_prime_numbers(0, pow(2, int(length / 2)))
